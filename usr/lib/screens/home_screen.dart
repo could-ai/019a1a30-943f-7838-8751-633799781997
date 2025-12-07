@@ -57,30 +57,35 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Find Your Match'),
         backgroundColor: Colors.pink[300],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: ProfileCard(user: _users[_currentIndex]),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 500),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
               children: [
-                FloatingActionButton(
-                  onPressed: _nextUser,
-                  backgroundColor: Colors.white,
-                  child: const Icon(Icons.close, color: Colors.red, size: 40),
+                Expanded(
+                  child: ProfileCard(user: _users[_currentIndex]),
                 ),
-                FloatingActionButton(
-                  onPressed: _nextUser,
-                  backgroundColor: Colors.white,
-                  child: const Icon(Icons.favorite, color: Colors.green, size: 40),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    FloatingActionButton(
+                      onPressed: _nextUser,
+                      backgroundColor: Colors.white,
+                      child: const Icon(Icons.close, color: Colors.red, size: 40),
+                    ),
+                    FloatingActionButton(
+                      onPressed: _nextUser,
+                      backgroundColor: Colors.white,
+                      child: const Icon(Icons.favorite, color: Colors.green, size: 40),
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );
